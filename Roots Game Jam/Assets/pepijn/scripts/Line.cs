@@ -21,7 +21,8 @@ public class Line : MonoBehaviour
         if (points == null)
         {
             points = new List<Vector2>();
-            points.Add(position);
+            Debug.Log(position);
+            SetPoint(position);
         }
 
         if (Vector2.Distance(points.Last(),position) > .1f)
