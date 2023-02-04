@@ -105,7 +105,9 @@ public class PlayerController : MonoBehaviour
     }
     public void MoveRootMover(float dir)
     {
+
         rootMover.transform.Rotate(Vector3.forward * dir * Time.deltaTime * rotationForce);
         rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
+
     }
 }
