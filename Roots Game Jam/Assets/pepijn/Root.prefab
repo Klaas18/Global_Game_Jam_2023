@@ -147,6 +147,7 @@ MonoBehaviour:
   lr: {fileID: 251094540956194837}
   rc: {fileID: 0}
   edge: {fileID: 9197236002717019124}
+  drawSpeed: 5
 --- !u!68 &9197236002717019124
 EdgeCollider2D:
   m_ObjectHideFlags: 0
