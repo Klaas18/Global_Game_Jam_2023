@@ -516,6 +516,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   sprite: {fileID: 0}
   canRoot: 0
+  animation: {fileID: 0}
 --- !u!1001 &1682551803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +598,22 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1484802285641314308, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484802285641314308, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484802285641314308, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 841729309, guid: c3721ea2577482843b8a109a4a2039eb, type: 3}
+    - target: {fileID: 1484802285641314308, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1484802285641314309, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -649,6 +666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2388014604138121631, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6386719
+      objectReference: {fileID: 0}
     - target: {fileID: 3648009565486538794, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
       propertyPath: speed
       value: 10
@@ -680,6 +701,10 @@ PrefabInstance:
     - target: {fileID: 3648009565486538794, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211842192278653056, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6386719
       objectReference: {fileID: 0}
     - target: {fileID: 5160414645563664364, guid: 95dce55ab427aa74fb714985aa27644d, type: 3}
       propertyPath: sunBar
