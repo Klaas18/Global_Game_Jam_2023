@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float speed;
-    public float jumpSpeed;
     private float direction = 0f;
     private Rigidbody2D player;
     //GroundCheck
@@ -18,8 +18,12 @@ public class PlayerController : MonoBehaviour
     public GameObject camera;
     [Range(0,50)]public float FollowSpeed;
     [Header("Roots")]
-    public GameObject LinePreFab;
-
+    public GameObject rootPrefab;
+    public GameObject rootMover;
+    public Line activeRoot;
+    public float speedModifier;
+    public float rotationForce;
+    bool isRooting;
 
 
     void Start()
@@ -28,8 +32,17 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        MoveCameraOnPlayer();
-        HandleMovement();
+        
+        if (!isRooting)
+        {
+            MoveCamera(transform);
+            HandleMovement();
+        }
+        HandleRoot();
+        if (isRooting)
+        {
+            MoveCamera(rootMover.transform);
+        }
     }
 
     public void HandleMovement()
@@ -51,22 +64,50 @@ public class PlayerController : MonoBehaviour
         {
             player.velocity = new Vector2(0, player.velocity.y);
         }
-
-        if (Input.GetButtonDown("Jump") && isTouchingGround)
-        {
-            player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-        }
     }
 
-    public void MoveCameraOnPlayer()
+    public void MoveCamera(Transform target)
     {
-        Vector3 newPosition = transform.position;
+        Vector3 newPosition = target.position;
         newPosition.z = -10;
         camera.transform.position = Vector3.Lerp(camera.transform.position, newPosition, FollowSpeed * Time.deltaTime);
     }
 
     public void HandleRoot()
     {
+        direction = Input.GetAxis("Horizontal");
+
+        if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null)
+        {
+            isRooting = true;
+            GameObject newRoot = Instantiate(rootPrefab);
+            
+            activeRoot = newRoot.GetComponent<Line>();
+        }
+        if (!Input.GetKey(KeyCode.Space) && activeRoot != null)
+        {
+            isRooting = false;
+            
+            activeRoot = null;
+            rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+            rootMover.transform.rotation = groundCheck.rotation;
+        }
+        
+        
+        if (activeRoot != null)
+        {
+            MoveRootMover(direction);
+            activeRoot.UpdateLine(rootMover.transform.position);
+            activeRoot.SetCollider();
+        }
+
+        
+    }
+    public void MoveRootMover(float dir)
+    {
+
+        rootMover.transform.Rotate(Vector3.forward * dir * Time.deltaTime * rotationForce);
+        rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
 
     }
 }
