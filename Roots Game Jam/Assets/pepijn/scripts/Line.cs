@@ -6,6 +6,8 @@ using System.Linq;
 public class Line : MonoBehaviour
 {
     public LineRenderer lr;
+    public RootCollide rc;
+    public EdgeCollider2D edge;
 
     List<Vector2> points;
 
@@ -29,5 +31,10 @@ public class Line : MonoBehaviour
         {
             SetPoint(position);
         }
+    }
+
+    public void SetCollider()
+    {
+        edge.SetPoints(points);
     }
 }

@@ -32,12 +32,17 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        MoveCameraOnPlayer();
+        
         if (!isRooting)
         {
+            MoveCamera(transform);
             HandleMovement();
         }
         HandleRoot();
+        if (isRooting)
+        {
+            MoveCamera(rootMover.transform);
+        }
     }
 
     public void HandleMovement()
@@ -61,9 +66,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void MoveCameraOnPlayer()
+    public void MoveCamera(Transform target)
     {
-        Vector3 newPosition = transform.position;
+        Vector3 newPosition = target.position;
         newPosition.z = -10;
         camera.transform.position = Vector3.Lerp(camera.transform.position, newPosition, FollowSpeed * Time.deltaTime);
     }
@@ -75,23 +80,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null)
         {
             isRooting = true;
-            GameObject newRoot = Instantiate(rootPrefab, groundCheck);
+            GameObject newRoot = Instantiate(rootPrefab);
+            
             activeRoot = newRoot.GetComponent<Line>();
         }
-        else if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetKey(KeyCode.Space) && activeRoot != null)
         {
             isRooting = false;
+            
             activeRoot = null;
-            rootMover.transform.position = transform.position;
+            rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+            rootMover.transform.rotation = groundCheck.rotation;
         }
+        
         
         if (activeRoot != null)
         {
-            rootMover.transform.Rotate(Vector3.forward * direction * Time.deltaTime * rotationForce);
-            rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
+            MoveRootMover(direction);
             activeRoot.UpdateLine(rootMover.transform.position);
+            activeRoot.SetCollider();
         }
 
         
+    }
+    public void MoveRootMover(float dir)
+    {
+        rootMover.transform.Rotate(Vector3.forward * dir * Time.deltaTime * rotationForce);
+        rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
     }
 }
