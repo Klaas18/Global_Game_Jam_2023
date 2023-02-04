@@ -23,7 +23,11 @@ public class PlayerController : MonoBehaviour
     public Line activeRoot;
     public float speedModifier;
     public float rotationForce;
-    bool isRooting;
+    public bool isRooting;
+    public bool hitStone;
+
+    public float WaterLevel;
+    
     public RootCollide rootCollisionCheck;
     [Header("EnergyIntegration")]
     public EnergyManager energyman;
@@ -80,21 +84,24 @@ public class PlayerController : MonoBehaviour
     {
         direction = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isRooting = true;
-            GameObject newRoot = Instantiate(rootPrefab);
-
-            activeRoot = newRoot.GetComponent<Line>();
-        }
-
-        if (!Input.GetKey(KeyCode.Space) && activeRoot != null)
-        {
-            isRooting = false;
-
-            activeRoot = null;
-            rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
-            rootMover.transform.rotation = groundCheck.rotation;
+            if (isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0 && !hitStone)
+            {
+                isRooting = true;
+                GameObject newRoot = Instantiate(rootPrefab);
+                WaterLevel = energyman.GetWater();
+                activeRoot = newRoot.GetComponent<Line>();
+            }
+            else if (activeRoot != null)
+            {
+                isRooting = false;
+                hitStone = false;
+                activeRoot.SetWaterUsed(WaterLevel-energyman.currentWaterEnergy);
+                activeRoot = null;
+                rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+                rootMover.transform.rotation = groundCheck.rotation;
+            }
         }
 
 
@@ -110,7 +117,14 @@ public class PlayerController : MonoBehaviour
 
                     break;
                 case 7:
+                    energyman.GainWaterPrecise(WaterLevel*0.75f);
+                    hitStone = true;
                     activeRoot.slingRootBack();
+                    isRooting = false;
+                    hitStone = false;
+                    activeRoot = null;
+                    rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+                    rootMover.transform.rotation = groundCheck.rotation;
                     break;
                 case 8:
 

@@ -9,6 +9,7 @@ public class Line : MonoBehaviour
     public RootCollide rc;
     public EdgeCollider2D edge;
     public float drawSpeed;
+    public float waterUsed;
 
     List<Vector2> points;
 
@@ -54,6 +55,13 @@ public class Line : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             lr.positionCount--;
         }
-        Destroy(this);
+        Destroy(this.gameObject);
+    }
+
+
+
+    public void SetWaterUsed(float water)
+    {
+        waterUsed = water;
     }
 }
