@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8762035837983914013
+--- !u!1 &7813979088398151848
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8762035837983914465}
-  - component: {fileID: 8762035837983914014}
-  - component: {fileID: 8762035837983914015}
-  - component: {fileID: 8762035837983914467}
-  - component: {fileID: 8762035837983914466}
+  - component: {fileID: 7813979088398151892}
+  - component: {fileID: 7813979088398151895}
+  - component: {fileID: 7813979088398151890}
+  - component: {fileID: 7813979088398151894}
+  - component: {fileID: 7813979088398151849}
   m_Layer: 0
-  m_Name: Water
+  m_Name: Sun Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8762035837983914465
+--- !u!4 &7813979088398151892
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762035837983914013}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.46, y: -3.34, z: 0}
-  m_LocalScale: {x: 1, y: 0.17, z: 1}
+  m_GameObject: {fileID: 7813979088398151848}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0016416197, w: 0.9999987}
+  m_LocalPosition: {x: 5.291422, y: 0.018461823, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8762035837983914014
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.188}
+--- !u!212 &7813979088398151895
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762035837983914013}
+  m_GameObject: {fileID: 7813979088398151848}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,38 +76,38 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.1764706, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8762035837983914015
+--- !u!114 &7813979088398151890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762035837983914013}
+  m_GameObject: {fileID: 7813979088398151848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb40a23f318e8949aa1ddf2223cfa88, type: 3}
+  m_Script: {fileID: 11500000, guid: 1633af085f0707844baa6a16de4441e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterAmount: 0.357
---- !u!50 &8762035837983914467
+  sunEnergyAmount: 0.69
+--- !u!50 &7813979088398151894
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762035837983914013}
+  m_GameObject: {fileID: 7813979088398151848}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -120,20 +120,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!70 &8762035837983914466
+  m_Constraints: 7
+--- !u!70 &7813979088398151849
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762035837983914013}
+  m_GameObject: {fileID: 7813979088398151848}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.029749159, y: -1.3050798}
+  m_Size: {x: 1.059488, y: 3.0184946}
   m_Direction: 0

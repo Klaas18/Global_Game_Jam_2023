@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class SunFlower : MonoBehaviour
 {
-   [Range(0,1)] public float sunEnergyAmount;
+    [Header("Sun Energy To Give")]
+    [Range(0,1)] public float sunEnergyAmount;
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && EnergyManager.energyManager.currentSunEnergy < 1)
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {  
+        if (collision.CompareTag("Player"))
         {
-            EnergyManager.energyManager.currentSunEnergy += sunEnergyAmount * Time.deltaTime;
+            EnergyManager.energyManager.isUpdatingSunBar = true;
+            EnergyManager.energyManager.sunEnergyAmount = sunEnergyAmount;
+            sunEnergyAmount = 0;
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            EnergyManager.energyManager.isUpdatingSunBar = false;
+        }
+    }
+
+
 }
