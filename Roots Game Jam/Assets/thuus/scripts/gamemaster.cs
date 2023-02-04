@@ -13,11 +13,7 @@ public class gamemaster : MonoBehaviour
         
     }
 
-    IEnumerator Order()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
-    }
+    
     void Update()
     {
 
@@ -25,11 +21,17 @@ public class gamemaster : MonoBehaviour
         {
             
             animate.SetBool("bush",true);
-                Order();
+            StartCoroutine(Waitbeforedestroy());
+            
             Debug.Log("destroyed");
 
 
         }
+    }
+    IEnumerator Waitbeforedestroy()
+    {
+        yield return new WaitForSeconds(1.1f);
+        Destroy(gameObject);
     }
 
 }
