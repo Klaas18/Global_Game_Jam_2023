@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
     public RootCollide rootCollisionCheck;
     [Header("EnergyIntegration")]
     public EnergyManager energyman;
-
-
     void Start()
     {
         player = GetComponent<Rigidbody2D>();

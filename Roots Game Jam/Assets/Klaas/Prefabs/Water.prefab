@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8762035837983914014}
   - component: {fileID: 8762035837983914015}
   - component: {fileID: 8762035837983914467}
-  - component: {fileID: 8762035837983914466}
+  - component: {fileID: 876964117}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 1348558164, guid: ccaeaa34b0c2a8c47839231422b1aa47, type: 3}
   m_Color: {r: 0.1764706, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,8 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb40a23f318e8949aa1ddf2223cfa88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resizeSpeed: 0
-  waterAmount: 0.357
+  resizeSpeed: 1.32
+  waterAmount: 1.42
+  canGiveWater: 1
+  waterSpriteRenderer: {fileID: 0}
 --- !u!50 &8762035837983914467
 Rigidbody2D:
   serializedVersion: 4
@@ -122,8 +124,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &8762035837983914466
-CapsuleCollider2D:
+--- !u!60 &876964117
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -136,5 +138,20 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.108056396, y: 0.6752746}
+      - {x: -0.13004467, y: 0.36842573}
+      - {x: -0.22646073, y: 0.27029157}
+      - {x: 0.1943996, y: 0.28003168}
+      - {x: 0.0470587, y: 0.39684272}
+      - {x: 0.041336417, y: 0.6687974}
