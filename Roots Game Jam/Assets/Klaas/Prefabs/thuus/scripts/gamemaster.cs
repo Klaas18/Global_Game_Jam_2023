@@ -21,11 +21,17 @@ public class gamemaster : MonoBehaviour
         {
             
             animate.SetBool("bush",true);
-            Destroy(gameObject);
+            StartCoroutine(Waitbeforedestroy());
+            
             Debug.Log("destroyed");
 
 
         }
+    }
+    IEnumerator Waitbeforedestroy()
+    {
+        yield return new WaitForSeconds(1.1f);
+        Destroy(gameObject);
     }
 
 }
