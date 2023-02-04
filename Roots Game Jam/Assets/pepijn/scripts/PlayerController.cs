@@ -105,14 +105,15 @@ public class PlayerController : MonoBehaviour
 
         if (activeRoot != null && energyman.currentWaterEnergy > 0)
         {
-            energyman.UseWater();
+            energyman.UseWaterDirt();
             MoveRootMover(direction);
             activeRoot.UpdateLine(rootMover.transform.position);
             activeRoot.SetCollider();
             switch (rootCollisionCheck.col.layer)
             {
                 case 6:
-
+                    speedModifier = 3;
+                    energyman.UseWaterDirt();
                     break;
                 case 7:
                     energyman.GainWaterPrecise(WaterLevel*0.75f);
@@ -125,9 +126,24 @@ public class PlayerController : MonoBehaviour
                     rootMover.transform.rotation = groundCheck.rotation;
                     break;
                 case 8:
-
+                    if (energyman.currentSunEnergy > 0) {
+                        speedModifier = 2;
+                        energyman.UseWaterMoss();
+                        energyman.UseSun();
+                    }
+                    else
+                    {
+                        hitStone = true;
+                        activeRoot.slingRootBack();
+                        isRooting = false;
+                        hitStone = false;
+                        activeRoot = null;
+                        rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+                        rootMover.transform.rotation = groundCheck.rotation;
+                    }
                     break;
                 default:
+                    speedModifier = 3;
                     break;
             }
         }

@@ -130,7 +130,6 @@ public class PlayerControllerWa : MonoBehaviour
 
         if (activeRoot != null && energyman.currentWaterEnergy > 0 && canRoot)
         {
-            energyman.UseWater();
             MoveRootMover(direction);
             activeRoot.UpdateLine(rootMover.transform.position);
             activeRoot.SetCollider();
