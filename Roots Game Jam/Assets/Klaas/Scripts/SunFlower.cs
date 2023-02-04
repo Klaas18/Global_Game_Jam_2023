@@ -18,7 +18,7 @@ public class SunFlower : MonoBehaviour
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
-    {
+    {   
         if (collision.CompareTag("Player"))
         {
             EnergyManager.energyManager.isUpdatingSunBar = false;

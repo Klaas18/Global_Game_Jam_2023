@@ -12,7 +12,7 @@ public class WaterPudle : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             EnergyManager.energyManager.isUpdatingWaterBar = true;
-            EnergyManager.energyManager.waterEnergyAmount = waterAmount;
+            EnergyManager.energyManager.waterEnergyAmount = waterAmount;          
             waterAmount = 0;
         }
     }
