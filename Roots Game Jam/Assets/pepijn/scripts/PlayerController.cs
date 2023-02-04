@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool isTouchingGround;
     [Header("Camera")]
     public GameObject camera;
-    [Range(0,50)]public float FollowSpeed;
+    [Range(0, 50)] public float FollowSpeed;
     [Header("Roots")]
     public GameObject rootPrefab;
     public GameObject rootMover;
@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public float speedModifier;
     public float rotationForce;
     bool isRooting;
+    public RootCollide rootCollisionCheck;
+    [Header("EnergyIntegration")]
+    public EnergyManager energyman;
 
 
     void Start()
@@ -32,12 +35,17 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        MoveCameraOnPlayer();
+
         if (!isRooting)
         {
+            MoveCamera(transform);
             HandleMovement();
         }
         HandleRoot();
+        if (isRooting)
+        {
+            MoveCamera(rootMover.transform);
+        }
     }
 
     public void HandleMovement()
@@ -61,9 +69,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void MoveCameraOnPlayer()
+    public void MoveCamera(Transform target)
     {
-        Vector3 newPosition = transform.position;
+        Vector3 newPosition = target.position;
         newPosition.z = -10;
         camera.transform.position = Vector3.Lerp(camera.transform.position, newPosition, FollowSpeed * Time.deltaTime);
     }
@@ -72,26 +80,54 @@ public class PlayerController : MonoBehaviour
     {
         direction = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null)
+        if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0)
         {
             isRooting = true;
-            GameObject newRoot = Instantiate(rootPrefab, groundCheck);
+            GameObject newRoot = Instantiate(rootPrefab);
+
             activeRoot = newRoot.GetComponent<Line>();
         }
-        else if (!Input.GetKey(KeyCode.Space))
+
+        if (!Input.GetKey(KeyCode.Space) && activeRoot != null)
         {
             isRooting = false;
+
             activeRoot = null;
-            rootMover.transform.position = transform.position;
-        }
-        
-        if (activeRoot != null)
-        {
-            rootMover.transform.Rotate(Vector3.forward * direction * Time.deltaTime * rotationForce);
-            rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
-            activeRoot.UpdateLine(rootMover.transform.position);
+            rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+            rootMover.transform.rotation = groundCheck.rotation;
         }
 
+
+        if (activeRoot != null && energyman.currentWaterEnergy > 0)
+        {
+            energyman.UseWater();
+            MoveRootMover(direction);
+            activeRoot.UpdateLine(rootMover.transform.position);
+            activeRoot.SetCollider();
+            switch (rootCollisionCheck.col.layer)
+            {
+                case 6:
+
+                    break;
+                case 7:
+                    activeRoot.slingRootBack();
+                    break;
+                case 8:
+
+                    break;
+                default:
+                    break;
+            }
+        }
         
+
+        
+    }
+    public void MoveRootMover(float dir)
+    {
+
+        rootMover.transform.Rotate(Vector3.forward * dir * Time.deltaTime * rotationForce);
+        rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
+
     }
 }

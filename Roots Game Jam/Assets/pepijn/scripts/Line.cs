@@ -6,6 +6,9 @@ using System.Linq;
 public class Line : MonoBehaviour
 {
     public LineRenderer lr;
+    public RootCollide rc;
+    public EdgeCollider2D edge;
+    public float drawSpeed;
 
     List<Vector2> points;
 
@@ -29,5 +32,28 @@ public class Line : MonoBehaviour
         {
             SetPoint(position);
         }
+    }
+
+    public void SetCollider()
+    {
+        edge.SetPoints(points);
+    }
+
+
+    public void slingRootBack()
+    {
+        StartCoroutine(LineCallBack());
+    }
+
+
+    IEnumerator LineCallBack()  //  <-  its a standalone method
+    {
+        int cap = lr.positionCount;
+        for (int i = 0; i < cap; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            lr.positionCount--;
+        }
+        Destroy(this);
     }
 }

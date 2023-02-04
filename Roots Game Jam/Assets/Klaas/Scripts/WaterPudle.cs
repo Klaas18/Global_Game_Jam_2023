@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class WaterPudle : MonoBehaviour
 {
-    [Range(0,1)]public float waterAmount;
+    [Header("Water Energy To Give")]
+    [Range(0,2)]public float waterAmount;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && EnergyManager.energyManager.currentWaterEnergy < 1)  //Checks If The Collider Is The Player And If Water Amount is smaller then 1
-        {                     
-               EnergyManager.energyManager.currentWaterEnergy += waterAmount * Time.deltaTime;  //Adds The Water To The WaterManager     
+        if (collision.CompareTag("Player"))
+        {
+            EnergyManager.energyManager.isUpdatingWaterBar = true;
+            EnergyManager.energyManager.waterEnergyAmount = waterAmount;
+            waterAmount = 0;
         }
-      
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            EnergyManager.energyManager.isUpdatingWaterBar = false;
+        }
+    }
+   
 }
