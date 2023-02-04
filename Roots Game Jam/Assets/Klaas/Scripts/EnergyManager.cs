@@ -81,6 +81,15 @@ public class EnergyManager : MonoBehaviour
         }
     }
 
+    public void GainWaterPrecise(float i)
+    {
+            currentWaterEnergy = i;   
+    }
+
+    public float GetWater()
+    {
+        return currentWaterEnergy;
+    }
     public void UseWater()  // Removes Some of your energy by the use of Time.deltatime
     {
         currentWaterEnergy -= Time.deltaTime /useSpeed;
