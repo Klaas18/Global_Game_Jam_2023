@@ -14,6 +14,7 @@ public class EnergyManager : MonoBehaviour
 
     [Header("Use Speed")]
     public int useSpeed;
+    public int useSpeedMoss;
 
     [Header("Bools")]
     public bool isUpdatingWaterBar = false;
@@ -43,11 +44,6 @@ public class EnergyManager : MonoBehaviour
             GainWaterEnergy();
         }
 
-       if(Input.GetKey(KeyCode.H))// This If Statement Is just For Testing
-        {
-            UseWater();
-            UseSun();
-        }
         FillWaterBar();// These 2 Are Always Being Called So That The Updating For The UI Works Smoothly
         FillSunBar();//
     }
@@ -90,9 +86,13 @@ public class EnergyManager : MonoBehaviour
     {
         return currentWaterEnergy;
     }
-    public void UseWater()  // Removes Some of your energy by the use of Time.deltatime
+    public void UseWaterDirt()  // Removes Some of your energy by the use of Time.deltatime
     {
         currentWaterEnergy -= Time.deltaTime /useSpeed;
+    }
+    public void UseWaterMoss()
+    {
+        currentWaterEnergy -= Time.deltaTime / useSpeedMoss;
     }
     public void UseSun()// Removes Some of your energy by the use of Time.deltatime
     {
