@@ -517,6 +517,35 @@ MonoBehaviour:
   - {x: 0.06765035, y: -0.06728679, z: 0}
   - {x: 0.034821536, y: -0.032711264, z: 0}
   - {x: -0.020234827, y: -0.04823352, z: 0}
+--- !u!60 &410904779
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410904766}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014673263, y: -0.0103339255}
+      - {x: -0.5, y: 0}
+      - {x: 0, y: -0.25}
+      - {x: 0.5, y: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,19 +849,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151849, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_Size.x
-      value: 0.9687107
+      value: 1.2536604
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151849, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_Size.y
-      value: 0.9687108
+      value: 1.2536606
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151849, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_Offset.x
-      value: -0.0156371
+      value: -0.008074402
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151849, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_Offset.y
-      value: 0.05175591
+      value: -0.07238817
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813979088398151890, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
+      propertyPath: sunEnergyAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151892, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_RootOrder
@@ -878,7 +911,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.981
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7813979088398151849, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
 --- !u!1001 &8016192966578320113
 PrefabInstance:
@@ -956,6 +990,14 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8762035837983914014, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762035837983914015, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
+      propertyPath: resizeSpeed
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914015, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: waterAmount
       value: 0.9
@@ -966,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.02
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -974,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.97
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_LocalPosition.z
