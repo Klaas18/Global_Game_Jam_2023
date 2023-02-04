@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
         if (activeRoot != null && energyman.currentWaterEnergy > 0)
         {
+            print("This Happend");
             energyman.UseWater();
             MoveRootMover(direction);
             activeRoot.UpdateLine(rootMover.transform.position);
