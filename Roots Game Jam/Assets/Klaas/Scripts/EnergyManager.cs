@@ -78,7 +78,7 @@ public class EnergyManager : MonoBehaviour
         {
             currentWaterEnergy += waterEnergyAmount * Time.deltaTime;
             waterEnergyAmount -= Time.deltaTime;
-        }
+        } 
     }
 
     public void GainWaterPrecise(float i)
