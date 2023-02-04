@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool isTouchingGround;
     [Header("Camera")]
     public GameObject camera;
-    [Range(0,50)]public float FollowSpeed;
+    [Range(0, 50)] public float FollowSpeed;
     [Header("Roots")]
     public GameObject rootPrefab;
     public GameObject rootMover;
@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public float speedModifier;
     public float rotationForce;
     bool isRooting;
+    public RootCollide rootCollisionCheck;
+    [Header("EnergyIntegration")]
+    public EnergyManager energyman;
 
 
     void Start()
@@ -32,7 +35,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
+
         if (!isRooting)
         {
             MoveCamera(transform);
@@ -77,29 +80,46 @@ public class PlayerController : MonoBehaviour
     {
         direction = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null)
+        if (Input.GetKey(KeyCode.Space) && isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0)
         {
             isRooting = true;
             GameObject newRoot = Instantiate(rootPrefab);
-            
+
             activeRoot = newRoot.GetComponent<Line>();
         }
+
         if (!Input.GetKey(KeyCode.Space) && activeRoot != null)
         {
             isRooting = false;
-            
+
             activeRoot = null;
             rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
             rootMover.transform.rotation = groundCheck.rotation;
         }
-        
-        
-        if (activeRoot != null)
+
+
+        if (activeRoot != null && energyman.currentWaterEnergy > 0)
         {
+            energyman.UseWater();
             MoveRootMover(direction);
             activeRoot.UpdateLine(rootMover.transform.position);
             activeRoot.SetCollider();
+            switch (rootCollisionCheck.col.layer)
+            {
+                case 6:
+
+                    break;
+                case 7:
+                    activeRoot.slingRootBack();
+                    break;
+                case 8:
+
+                    break;
+                default:
+                    break;
+            }
         }
+        
 
         
     }
