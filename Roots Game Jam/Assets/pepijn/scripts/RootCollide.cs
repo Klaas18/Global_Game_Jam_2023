@@ -12,7 +12,6 @@ public class RootCollide : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        print(collision.gameObject.layer.ToString());
         col = collision.gameObject;
     }
 }

@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
             {
                 case 6:
                     speedModifier = 3;
-                    rotationForce = 4;
+                    rotationForce = 250;
                     energyman.UseWaterDirt();
                     break;
                 case 7:
@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
                         hitStone = true;
                         activeRoot.slingRootBack();
                         isRooting = false;
-                        animator.SetBool("abliety", false);
+                        animator.SetBool("abilety", false);
                         hitStone = false;
             
                         activeRoot = null;
