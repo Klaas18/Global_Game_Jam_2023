@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 8566614971767269294}
   - component: {fileID: 8566614971767269295}
   - component: {fileID: 2730536957676761157}
+  - component: {fileID: 1506432129}
   m_Layer: 0
   m_Name: Player(Klaas)
   m_TagString: Player
@@ -197,6 +198,7 @@ Transform:
   - {fileID: 8566614971239759385}
   - {fileID: 8016192967437621793}
   - {fileID: 1034274553914539136}
+  - {fileID: 7789549566945524725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,7 +243,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1672975350, guid: 52c608d2210888a4ba2b891c2ca6e16a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -319,6 +321,10 @@ MonoBehaviour:
   WaterLevel: 0
   rootCollisionCheck: {fileID: 8016192967437621823}
   energyman: {fileID: 2730536957676761157}
+  animator: {fileID: 0}
+  sprite: {fileID: 0}
+  canRoot: 0
+  animation: {fileID: 0}
 --- !u!114 &2730536957676761157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,12 +340,33 @@ MonoBehaviour:
   sunEnergyAmount: 0
   waterEnergyAmount: 0
   useSpeed: 12
+  useSpeedMoss: 0
   isUpdatingWaterBar: 0
   isUpdatingSunBar: 0
   currentWaterEnergy: 0
-  waterBar: {fileID: 0}
+  waterBar: {fileID: 9092247286804240216}
   currentSunEnergy: 0
-  sunBar: {fileID: 0}
+  sunBar: {fileID: 6748497913985246186}
+--- !u!95 &1506432129
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566614971767269264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04fcc52f42ff8ae42bd825b5e9d76868, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7686377509592580608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -442,3 +469,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7273599979738660480, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
   m_PrefabInstance: {fileID: 7686377509592580608}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6748497913985246186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3966550353672888810, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+  m_PrefabInstance: {fileID: 7686377509592580608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9092247286804240216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1478686059103032664, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+  m_PrefabInstance: {fileID: 7686377509592580608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

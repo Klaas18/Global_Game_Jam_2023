@@ -21267,7 +21267,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &851587909
 PrefabInstance:
@@ -21286,7 +21286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5647805435224981833, guid: c5cdfaf9475acaf4fb87cd17392ab38f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5647805435224981833, guid: c5cdfaf9475acaf4fb87cd17392ab38f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55594,7 +55594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566614971767269292, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8566614971767269292, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55636,10 +55636,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8566614971767269293, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1672975350, guid: 52c608d2210888a4ba2b891c2ca6e16a, type: 3}
     - target: {fileID: 8566614971767269295, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
       propertyPath: camera
       value: 
@@ -61595,7 +61591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151892, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7813979088398151892, guid: 5e5e8ae051be9ac4296164e68e9e321f, type: 3}
       propertyPath: m_LocalPosition.x
