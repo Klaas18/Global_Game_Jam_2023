@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private float direction = 0f;
     private Rigidbody2D player;
+    public bool end = false;
     //GroundCheck
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -21,7 +22,6 @@ public class PlayerController : MonoBehaviour
     public GameObject rootPrefab;
     public GameObject rootMover;
     public Line activeRoot;
-    public Line previousRoot;
     public float speedModifier;
     public float rotationForce;
     public bool isRooting;
@@ -55,38 +55,40 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-
-        if (!isRooting && !isSplitting)
+        if (!end)
         {
-            MoveCamera(transform);
-            HandleMovement();
-        }
-        HandleRoot();
-        HandleSplit();
-        if (isSplitting)
-        {
-            MoveCamera(selectionObject.transform);
-        }
-        if (isRooting)
-        {
-            MoveCamera(rootMover.transform);
-        }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            RemoveRecentRoot();
+            if (!isRooting && !isSplitting)
+            {
+                MoveCamera(transform);
+                HandleMovement();
+            }
+            HandleRoot();
+            HandleSplit();
+            if (isSplitting)
+            {
+                MoveCamera(selectionObject.transform);
+            }
+            if (isRooting)
+            {
+                MoveCamera(rootMover.transform);
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RemoveRecentRoot();
+            }
         }
     }
 
    
          public void RemoveRecentRoot()
-    {
+        {
         if(UsedRoots.Count != 0 && !isRooting)
         {
             int deleteInt = UsedRoots.Count - 1;
             UsedRoots[deleteInt].GetComponent<Line>().slingRootBack();          
             UsedRoots.RemoveAt(UsedRoots.Count -1);
         }
-    }
+        }
     public void HandleMovement()
     {
         //basic movement mechanics
@@ -115,6 +117,8 @@ public class PlayerController : MonoBehaviour
             player.velocity = new Vector2(0, player.velocity.y);
         }
     }
+
+    
 
     public void MoveCamera(Transform target)
     {
@@ -145,8 +149,8 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     rootMover.transform.position = selectionObject.transform.position;
-                    float angle = Random.Range(-180,181);
-                    rootMover.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ;
+
+                    rootMover.transform.rotation = selectionObject.transform.rotation;
                     isRooting = true;
                     isSplitting = false;
                     GameObject newRoot = Instantiate(rootPrefab);
@@ -160,7 +164,6 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("abilety", false);
                 hitStone = false;
                 activeRoot.SetWaterUsed(WaterLevel-energyman.currentWaterEnergy);
-                previousRoot = activeRoot;
                 UsedRoots.Add(activeRoot.gameObject);
                 activeRoot = null;
                 rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
@@ -180,23 +183,25 @@ public class PlayerController : MonoBehaviour
             {
                 case 6:
                     speedModifier = 3;
+                    rotationForce = 4;
                     energyman.UseWaterDirt();
                     break;
                 case 7:
+                    animator.SetBool("abilety", false);
                     energyman.GainWaterPrecise(WaterLevel*0.75f);
                     hitStone = true;
                     activeRoot.slingRootBack();
                     isRooting = false;
-                    animator.SetBool("abliety", false);
+                    
                     hitStone = false;
-                 
                     activeRoot = null;
                     rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
                     rootMover.transform.rotation = groundCheck.rotation;
                     break;
                 case 8:
                     if (energyman.currentSunEnergy > 0) {
-                        speedModifier = 2;
+                        speedModifier = 1.5f;
+                        rotationForce = 180;
                         energyman.UseWaterMoss();
                         energyman.UseSun();
                     }
@@ -213,8 +218,21 @@ public class PlayerController : MonoBehaviour
                         rootMover.transform.rotation = groundCheck.rotation;
                     }
                     break;
+                case 10:
+                    energyman.GainWaterPrecise(WaterLevel * 0.75f);
+                    hitStone = true;
+                    activeRoot.slingRootBack();
+                    isRooting = false;
+                    animator.SetBool("abilety", false);
+                    hitStone = false;
+
+                    activeRoot = null;
+                    rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
+                    rootMover.transform.rotation = groundCheck.rotation;
+                    break;
                 default:
                     speedModifier = 3;
+                    rotationForce = 250;
                     break;
             }
         }
@@ -239,33 +257,45 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A) && isSplitting)
         {
-            if (selectionIndex > 10) selectionIndex-=7;
-            else selectionIndex = previousRoot.lr.positionCount - 1;
+            if (selectionIndex > 10) selectionIndex -= 7;
+            else selectionIndex = UsedRoots[UsedRoots.Count - 1].GetComponent<Line>().lr.positionCount - 1;
         }
         if (Input.GetKeyDown(KeyCode.D) && isSplitting)
         {
-            if (selectionIndex < previousRoot.lr.positionCount - 11) selectionIndex+=7;
+            if (selectionIndex < UsedRoots[UsedRoots.Count - 1].GetComponent<Line>().lr.positionCount - 11) selectionIndex += 7;
             else selectionIndex = 0;
         }
         if (isSplitting)
         {
-            RenderSelection(previousRoot.SelectPointOnRoot(selectionIndex));
+            RenderSelection(UsedRoots[UsedRoots.Count-1].GetComponent<Line>().SelectPointOnRoot(selectionIndex));
+        }
+        else if (selectionObject != null)
+        { 
+            Destroy(selectionObject);
         }
     }
 
     public void RenderSelection(Vector2 position)
     {
-        if (selectionObject == null)
+        if (isSplitting)
         {
-            selectionObject = Instantiate(selectionObjectPrefab);
+            if (selectionObject == null)
+            {
+                selectionObject = Instantiate(selectionObjectPrefab);
+            }
+            else
+            {
+                float angle = 90 - selectionObject.transform.rotation.z;
+                selectionObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                selectionObject.transform.position = position;
+            }
         }
         else
         {
-            print("dirty nigg...");
-            float angle = 90 - selectionObject.transform.rotation.z;
-            selectionObject.transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
-            selectionObject.transform.position = position;
+            Destroy(selectionObject);
         }
+
+
     }
 
 

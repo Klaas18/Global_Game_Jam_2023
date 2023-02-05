@@ -18,13 +18,14 @@ public class trancition : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        player.GetComponent<PlayerController>().speed = 0;
+        player.GetComponent<PlayerController>().end = true;
         StartCoroutine(PlayerAnimation()); 
 
     }
     IEnumerator PlayerAnimation()
     {
         animator.SetBool("tree", true);
+        
         yield return new WaitForSeconds(4);
         StartCoroutine(Waitbeforedestroyy());
     }

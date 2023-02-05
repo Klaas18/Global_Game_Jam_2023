@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7789549566945524725}
   - component: {fileID: 5746351968538568233}
   - component: {fileID: 4894728585706344556}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8016192967437621793}
   - component: {fileID: 8016192967437621822}
   - component: {fileID: 8016192967437621823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RootMover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8566614971239759385}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 8566614971767269295}
   - component: {fileID: 2730536957676761157}
   - component: {fileID: 1506432129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player(Klaas)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -314,12 +314,18 @@ MonoBehaviour:
   rootPrefab: {fileID: 2483586665668193222, guid: f1895781046d667419f326450e56d4e4, type: 3}
   rootMover: {fileID: 8016192967437621820}
   activeRoot: {fileID: 0}
-  speedModifier: 5
+  previousRoot: {fileID: 0}
+  speedModifier: 3
   rotationForce: 250
   isRooting: 0
   hitStone: 0
   WaterLevel: 0
   rootCollisionCheck: {fileID: 8016192967437621823}
+  isSplitting: 0
+  selectionIndex: 0
+  selectionObject: {fileID: 0}
+  selectionObjectPrefab: {fileID: 3759072151814608290, guid: 88cdf2fcff9c12f40b8a110ae72c9357, type: 3}
+  UsedRoots: []
   energyman: {fileID: 2730536957676761157}
   animator: {fileID: 0}
   sprite: {fileID: 0}
@@ -340,7 +346,7 @@ MonoBehaviour:
   sunEnergyAmount: 0
   waterEnergyAmount: 0
   useSpeed: 12
-  useSpeedMoss: 0
+  useSpeedMoss: 24
   isUpdatingWaterBar: 0
   isUpdatingSunBar: 0
   currentWaterEnergy: 0
@@ -374,9 +380,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8566614971767269292}
     m_Modifications:
+    - target: {fileID: 179379577223244741, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 967466667033981651, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562415784458926198, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482181813887552648, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211954342739391012, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946350437336692257, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028687650408244385, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7046559908186022041, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Name
       value: Canvas GUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046559908186022041, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7273599979738660480, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Pivot.x
@@ -461,6 +499,10 @@ PrefabInstance:
     - target: {fileID: 7273599979738660480, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955432698934977772, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
