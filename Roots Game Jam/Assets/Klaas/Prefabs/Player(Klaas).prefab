@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  end: 0
   groundCheck: {fileID: 8566614971239759385}
   groundCheckRadius: 0.1
   groundLayer:
@@ -314,7 +315,6 @@ MonoBehaviour:
   rootPrefab: {fileID: 2483586665668193222, guid: f1895781046d667419f326450e56d4e4, type: 3}
   rootMover: {fileID: 8016192967437621820}
   activeRoot: {fileID: 0}
-  previousRoot: {fileID: 0}
   speedModifier: 3
   rotationForce: 250
   isRooting: 0
@@ -397,8 +397,20 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5211954342739391012, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Name
+      value: reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211954342739391012, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383431009028203378, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 2575202166795282269}
+    - target: {fileID: 6885367616309007651, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_Name
+      value: help
       objectReference: {fileID: 0}
     - target: {fileID: 6946350437336692257, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Layer
@@ -509,6 +521,11 @@ PrefabInstance:
 --- !u!224 &1034274553914539136 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7273599979738660480, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+  m_PrefabInstance: {fileID: 7686377509592580608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2575202166795282269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5266831279801197917, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
   m_PrefabInstance: {fileID: 7686377509592580608}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6748497913985246186 stripped

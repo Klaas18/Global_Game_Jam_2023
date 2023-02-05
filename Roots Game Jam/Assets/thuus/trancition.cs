@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class trancition : MonoBehaviour
 {
-    public string scene;
+    public int scene;
     public Animator animate;
     public Animator animator;
     public GameObject player;
@@ -34,7 +34,6 @@ public class trancition : MonoBehaviour
     {
         animate.SetBool("transition", true);
         yield return new WaitForSeconds(3);
-        Debug.Log("z");
         SceneManager.LoadScene(scene);
     }
 
