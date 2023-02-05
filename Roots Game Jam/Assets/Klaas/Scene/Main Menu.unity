@@ -316,22 +316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9216131628892650517, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300004, guid: b498b10e04b2d4d42b0c26e9eb535f19, type: 3}
-    - target: {fileID: 9216131629493593267, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216131629493593267, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216131629493593267, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9216131630220581182, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
       propertyPath: m_Name
       value: Main Menu Holder
@@ -378,14 +362,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9216131630220581183, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216131630345034524, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216131630345034524, guid: 41ab2fe15eef5ce4486ae67993840088, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

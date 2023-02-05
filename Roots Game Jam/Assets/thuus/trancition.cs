@@ -37,10 +37,10 @@ public class trancition : MonoBehaviour
         yield return new WaitForSeconds(3);
         Debug.Log("z");
 
-        if (SceneManager.GetActiveScene().buildIndex != 3)
-        {
+       // if (SceneManager.GetActiveScene().buildIndex != 4)
+      //  {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        } else { SceneManager.LoadScene(0); }
+      //  } else { SceneManager.LoadScene(0); }
     }
 
 }

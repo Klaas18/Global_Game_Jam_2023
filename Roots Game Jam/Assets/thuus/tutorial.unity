@@ -290,11 +290,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &285568493 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2575202166795282269, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
-  m_PrefabInstance: {fileID: 2134018961}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &712904050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21521,14 +21516,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2314487799281328498, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
-      propertyPath: yes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2314487799281328498, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 285568493}
     - target: {fileID: 8566614971767269264, guid: a9d4d99907957ab45b694dae01c9d735, type: 3}
       propertyPath: m_Name
       value: Player(Klaas)

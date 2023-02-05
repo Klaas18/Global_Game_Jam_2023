@@ -957,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914015, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: waterAmount
-      value: 1.16
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_RootOrder
@@ -1247,7 +1247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914015, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: waterAmount
-      value: 1.16
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_RootOrder
@@ -72132,7 +72132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914015, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: waterAmount
-      value: 0.94
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 8762035837983914465, guid: cb21b07709b4a4b4daa4316ee3b9a0bf, type: 3}
       propertyPath: m_RootOrder
