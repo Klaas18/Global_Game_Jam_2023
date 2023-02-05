@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
             }
             HandleRoot();
             HandleSplit();
-            if (isSplitting)
+            if (isSplitting && UsedRoots.Count != 0)
             {
                 MoveCamera(selectionObject.transform);
             }
@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
                         hitStone = true;
                         activeRoot.slingRootBack();
                         isRooting = false;
-                        animator.SetBool("abliety", false);
+                        animator.SetBool("abilety", false);
                         hitStone = false;
             
                         activeRoot = null;
@@ -255,24 +255,26 @@ public class PlayerController : MonoBehaviour
                 isSplitting = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.A) && isSplitting)
+        if (Input.GetKeyDown(KeyCode.A) && isSplitting && UsedRoots.Count != 0)
         {
             if (selectionIndex > 10) selectionIndex -= 7;
             else selectionIndex = UsedRoots[UsedRoots.Count - 1].GetComponent<Line>().lr.positionCount - 1;
         }
-        if (Input.GetKeyDown(KeyCode.D) && isSplitting)
+        if (Input.GetKeyDown(KeyCode.D) && isSplitting && UsedRoots.Count != 0)
         {
             if (selectionIndex < UsedRoots[UsedRoots.Count - 1].GetComponent<Line>().lr.positionCount - 11) selectionIndex += 7;
             else selectionIndex = 0;
-        }
-        if (isSplitting)
-        {
-            RenderSelection(UsedRoots[UsedRoots.Count-1].GetComponent<Line>().SelectPointOnRoot(selectionIndex));
-        }
-        else if (selectionObject != null)
-        { 
-            Destroy(selectionObject);
-        }
+        }  
+
+            if (isSplitting && UsedRoots.Count != 0)
+            {
+                RenderSelection(UsedRoots[UsedRoots.Count - 1].GetComponent<Line>().SelectPointOnRoot(selectionIndex));
+            }
+            else if (selectionObject != null)
+            {
+                Destroy(selectionObject);
+            }
+       
     }
 
     public void RenderSelection(Vector2 position)
