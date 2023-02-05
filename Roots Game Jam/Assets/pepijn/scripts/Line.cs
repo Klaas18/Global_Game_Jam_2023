@@ -13,6 +13,7 @@ public class Line : MonoBehaviour
 
     List<Vector2> points;
 
+  
     void SetPoint(Vector2 point)
     {
         points.Add(point);
