@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public float WaterLevel;
     
     public RootCollide rootCollisionCheck;
+
+    [Header("Used Roots")]
+    public List<GameObject> UsedRoots = new List<GameObject>();
+
     [Header("EnergyIntegration")]
     public EnergyManager energyman;
     void Start()
@@ -48,8 +52,23 @@ public class PlayerController : MonoBehaviour
         {
             MoveCamera(rootMover.transform);
         }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            RemoveRecentRoot();
+        }
     }
 
+    public void RemoveRecentRoot()
+    {
+        if(UsedRoots.Count != 0)
+        {
+            print($"Count Before Remove: {UsedRoots.Count}");
+            int deleteInt = UsedRoots.Count - 1;
+            UsedRoots[deleteInt].GetComponent<Line>().slingRootBack();          
+            UsedRoots.RemoveAt(UsedRoots.Count -1);
+            print($"Count After After: {UsedRoots.Count}");
+        }
+    }
     public void HandleMovement()
     {
         //basic movement mechanics
@@ -87,15 +106,17 @@ public class PlayerController : MonoBehaviour
             if (isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0 && !hitStone)
             {
                 isRooting = true;
-                GameObject newRoot = Instantiate(rootPrefab);
+                GameObject newRoot = Instantiate(rootPrefab);        
                 WaterLevel = energyman.GetWater();
                 activeRoot = newRoot.GetComponent<Line>();
+               
             }
             else if (activeRoot != null)
             {
                 isRooting = false;
                 hitStone = false;
                 activeRoot.SetWaterUsed(WaterLevel-energyman.currentWaterEnergy);
+                UsedRoots.Add(activeRoot.gameObject);
                 activeRoot = null;
                 rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
                 rootMover.transform.rotation = groundCheck.rotation;
@@ -121,6 +142,7 @@ public class PlayerController : MonoBehaviour
                     activeRoot.slingRootBack();
                     isRooting = false;
                     hitStone = false;
+                 
                     activeRoot = null;
                     rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
                     rootMover.transform.rotation = groundCheck.rotation;
@@ -137,6 +159,7 @@ public class PlayerController : MonoBehaviour
                         activeRoot.slingRootBack();
                         isRooting = false;
                         hitStone = false;
+            
                         activeRoot = null;
                         rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
                         rootMover.transform.rotation = groundCheck.rotation;
