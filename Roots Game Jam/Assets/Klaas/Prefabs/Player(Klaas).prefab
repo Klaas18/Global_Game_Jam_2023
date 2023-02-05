@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 8566614971767269295}
   - component: {fileID: 2730536957676761157}
   - component: {fileID: 1506432129}
+  - component: {fileID: 378642810}
   m_Layer: 7
   m_Name: Player(Klaas)
   m_TagString: Player
@@ -373,6 +374,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &378642810
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566614971767269264}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.4375, y: 2.5625}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2}
+  m_EdgeRadius: 0
 --- !u!1001 &7686377509592580608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,6 +426,14 @@ PrefabInstance:
     - target: {fileID: 5211954342739391012, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701405372989685342, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6386719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075324507408645953, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6386719
       objectReference: {fileID: 0}
     - target: {fileID: 6946350437336692257, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Layer
@@ -500,6 +535,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8005077283101133438}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resetlevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: button, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664403413284172281, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8955432698934977772, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -520,6 +583,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8005077283101133438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 413417466154944638, guid: b389935b547dfe74f9ae9a1d623886ab, type: 3}
+  m_PrefabInstance: {fileID: 7686377509592580608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13e83be9b74b194982bfbb7934f8e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &9092247286804240216 stripped
