@@ -58,7 +58,10 @@ public class Line : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void SelectPointOnRoot()
+    {
 
+    }
 
     public void SetWaterUsed(float water)
     {
