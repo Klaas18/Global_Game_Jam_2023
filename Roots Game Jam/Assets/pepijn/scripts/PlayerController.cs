@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     public void RemoveRecentRoot()
     {
-        if(UsedRoots.Count != 0)
+        if(UsedRoots.Count != 0 && !isRooting)
         {
             print($"Count Before Remove: {UsedRoots.Count}");
             int deleteInt = UsedRoots.Count - 1;
