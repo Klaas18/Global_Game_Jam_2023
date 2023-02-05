@@ -58,7 +58,12 @@ public class Line : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void SelectPointOnRoot()
+    public Vector2 SelectPointOnRoot(int i)
+    {
+        return points[i];
+    }
+
+    public void CalculateRotationRoot()
     {
 
     }

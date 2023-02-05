@@ -21,14 +21,20 @@ public class PlayerController : MonoBehaviour
     public GameObject rootPrefab;
     public GameObject rootMover;
     public Line activeRoot;
+    public Line previousRoot;
     public float speedModifier;
     public float rotationForce;
     public bool isRooting;
     public bool hitStone;
-
     public float WaterLevel;
-    
     public RootCollide rootCollisionCheck;
+    [Header("RootSplitter")]
+    public bool isSplitting;
+    public int selectionIndex;
+    public GameObject selectionObject;
+    public GameObject selectionObjectPrefab;
+
+
     [Header("EnergyIntegration")]
     public EnergyManager energyman;
     void Start()
@@ -38,12 +44,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (!isRooting)
+        if (!isRooting && !isSplitting)
         {
             MoveCamera(transform);
             HandleMovement();
         }
         HandleRoot();
+        HandleSplit();
+        if (isSplitting)
+        {
+            MoveCamera(selectionObject.transform);
+        }
         if (isRooting)
         {
             MoveCamera(rootMover.transform);
@@ -86,16 +97,31 @@ public class PlayerController : MonoBehaviour
         {
             if (isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0 && !hitStone)
             {
-                isRooting = true;
-                GameObject newRoot = Instantiate(rootPrefab);
-                WaterLevel = energyman.GetWater();
-                activeRoot = newRoot.GetComponent<Line>();
+                if (!isSplitting)
+                {
+                    isRooting = true;
+                    GameObject newRoot = Instantiate(rootPrefab);
+                    WaterLevel = energyman.GetWater();
+                    activeRoot = newRoot.GetComponent<Line>();
+                }
+                else
+                {
+                    rootMover.transform.position = selectionObject.transform.position;
+                    float angle = Random.Range(-180,181);
+                    rootMover.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ;
+                    isRooting = true;
+                    isSplitting = false;
+                    GameObject newRoot = Instantiate(rootPrefab);
+                    WaterLevel = energyman.GetWater();
+                    activeRoot = newRoot.GetComponent<Line>();
+                }
             }
             else if (activeRoot != null)
             {
                 isRooting = false;
                 hitStone = false;
                 activeRoot.SetWaterUsed(WaterLevel-energyman.currentWaterEnergy);
+                previousRoot = activeRoot;
                 activeRoot = null;
                 rootMover.transform.position = new Vector2(transform.position.x, transform.position.y - 1.2f);
                 rootMover.transform.rotation = groundCheck.rotation;
@@ -151,11 +177,58 @@ public class PlayerController : MonoBehaviour
 
         
     }
+
+    public void HandleSplit()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (!isSplitting)
+            {
+                isSplitting = true;
+                selectionIndex = 0;
+            }
+            else
+            {
+                isSplitting = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.A) && isSplitting)
+        {
+            if (selectionIndex > 10) selectionIndex-=7;
+            else selectionIndex = previousRoot.lr.positionCount - 1;
+        }
+        if (Input.GetKeyDown(KeyCode.D) && isSplitting)
+        {
+            if (selectionIndex < previousRoot.lr.positionCount - 11) selectionIndex+=7;
+            else selectionIndex = 0;
+        }
+        if (isSplitting)
+        {
+            RenderSelection(previousRoot.SelectPointOnRoot(selectionIndex));
+        }
+    }
+
+    public void RenderSelection(Vector2 position)
+    {
+        if (selectionObject == null)
+        {
+            selectionObject = Instantiate(selectionObjectPrefab);
+        }
+        else
+        {
+            print("dirty nigg...");
+            float angle = 90 - selectionObject.transform.rotation.z;
+            selectionObject.transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
+            selectionObject.transform.position = position;
+        }
+    }
+
+
+   
+
     public void MoveRootMover(float dir)
     {
-
         rootMover.transform.Rotate(Vector3.forward * dir * Time.deltaTime * rotationForce);
         rootMover.transform.Translate(Vector2.down * Time.deltaTime * speedModifier);
-
     }
 }
