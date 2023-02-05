@@ -36,7 +36,11 @@ public class trancition : MonoBehaviour
         animate.SetBool("transition", true);
         yield return new WaitForSeconds(3);
         Debug.Log("z");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        } else { SceneManager.LoadScene(0); }
     }
 
 }
