@@ -40,9 +40,18 @@ public class PlayerController : MonoBehaviour
 
     [Header("EnergyIntegration")]
     public EnergyManager energyman;
+
+    [Header("Animation")]
+    public Animator animator;
+    public SpriteRenderer sprite;
+    public bool canRoot;
+    public AnimationClip animation;
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+
     }
     void Update()
     {
@@ -88,13 +97,21 @@ public class PlayerController : MonoBehaviour
         if (direction > 0f)
         {
             player.velocity = new Vector2(direction * speed, player.velocity.y);
+            sprite.flipX = true;
+            animator.SetBool("walking", true);
+
         }
         else if (direction < 0f)
         {
             player.velocity = new Vector2(direction * speed, player.velocity.y);
+            sprite.flipX = false;
+            animator.SetBool("walking", true);
+
         }
         else
         {
+            sprite.flipX = false;
+            animator.SetBool("walking", false);
             player.velocity = new Vector2(0, player.velocity.y);
         }
     }
@@ -111,11 +128,15 @@ public class PlayerController : MonoBehaviour
         direction = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
+        {     
+            
             if (isTouchingGround && activeRoot == null && energyman.currentWaterEnergy > 0 && !hitStone)
             {
                 if (!isSplitting)
                 {
+                animator.SetBool("abilety", true);
+             
+               
                     isRooting = true;
                     GameObject newRoot = Instantiate(rootPrefab);
                     WaterLevel = energyman.GetWater();
@@ -136,6 +157,7 @@ public class PlayerController : MonoBehaviour
             else if (activeRoot != null)
             {
                 isRooting = false;
+                animator.SetBool("abilety", false);
                 hitStone = false;
                 activeRoot.SetWaterUsed(WaterLevel-energyman.currentWaterEnergy);
                 previousRoot = activeRoot;
@@ -145,6 +167,7 @@ public class PlayerController : MonoBehaviour
                 rootMover.transform.rotation = groundCheck.rotation;
             }
         }
+
 
 
         if (activeRoot != null && energyman.currentWaterEnergy > 0)
@@ -164,6 +187,7 @@ public class PlayerController : MonoBehaviour
                     hitStone = true;
                     activeRoot.slingRootBack();
                     isRooting = false;
+                    animator.SetBool("abliety", false);
                     hitStone = false;
                  
                     activeRoot = null;
@@ -181,6 +205,7 @@ public class PlayerController : MonoBehaviour
                         hitStone = true;
                         activeRoot.slingRootBack();
                         isRooting = false;
+                        animator.SetBool("abliety", false);
                         hitStone = false;
             
                         activeRoot = null;

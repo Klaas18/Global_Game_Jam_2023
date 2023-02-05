@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 861ea5e4eb5df8441bcb64a53dc846fe
+<<<<<<<< HEAD:Roots Game Jam/Assets/thuus/tiles/moss.png.meta
+guid: 687b8baaefd28d64c865542c4cefa5c6
+========
+guid: c64a6d81cfdcd624b974518bdceaab41
+>>>>>>>> origin/thijs-werkend:Roots Game Jam/Assets/thuus/Materials/last dirt.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +51,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<<< HEAD:Roots Game Jam/Assets/thuus/tiles/moss.png.meta
+  spritePixelsToUnits: 100
+========
   spritePixelsToUnits: 32
+>>>>>>>> origin/thijs-werkend:Roots Game Jam/Assets/thuus/Materials/last dirt.png.meta
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,6 +109,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<<< HEAD:Roots Game Jam/Assets/thuus/tiles/moss.png.meta
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+========
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -115,7 +128,71 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: last dirt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf62f3bc608bb674685bed35b905a82e
+      internalID: -1184195940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: last dirt_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cb46adc28bfc24797405fba3c4f459
+      internalID: -706117700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: last dirt_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f21d5e581fe874cac7c6af681a3cfb
+      internalID: 479727395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+>>>>>>>> origin/thijs-werkend:Roots Game Jam/Assets/thuus/Materials/last dirt.png.meta
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +203,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<<< HEAD:Roots Game Jam/Assets/thuus/tiles/moss.png.meta
     nameFileIdTable: {}
+========
+    nameFileIdTable:
+      last dirt_0: -1184195940
+      last dirt_1: -706117700
+      last dirt_2: 479727395
+>>>>>>>> origin/thijs-werkend:Roots Game Jam/Assets/thuus/Materials/last dirt.png.meta
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

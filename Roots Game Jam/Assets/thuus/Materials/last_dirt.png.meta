@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d45fec6e99f03cb419de63c8d41931ca
+guid: f83abde9006cdf14690e68ac1a2a8bdb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: caracter action_0
+      name: last_dirt_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 41
-        width: 23
-        height: 41
+        y: 68
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,41 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea2f9dc76c9f63640a3c4b3851a1b45c
-      internalID: 1673882789
+      spriteID: ae727b6834486024aaa10c5f4b17d9ce
+      internalID: 653535087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caracter action_1
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 41
-        width: 23
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23b88a251c860954e8db84096a23df8e
-      internalID: -879116565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caracter action_2
+      name: last_dirt_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 23
-        height: 41
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,8 +176,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71f318babb3d89b44a8e037a045525ff
-      internalID: 296740260
+      spriteID: c407ced29b6da804d859e64e7556aaac
+      internalID: -2126145685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: last_dirt_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9e3c10e2c1df645b0e67ae980301c5
+      internalID: 1657771099
       vertices: []
       indices: 
       edges: []
@@ -214,9 +214,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      caracter action_1: -879116565
-      caracter action_0: 1673882789
-      caracter action_2: 296740260
+      last_dirt_0: 653535087
+      last_dirt_1: -2126145685
+      last_dirt_2: 1657771099
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

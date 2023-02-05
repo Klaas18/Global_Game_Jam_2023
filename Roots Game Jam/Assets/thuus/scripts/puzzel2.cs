@@ -9,7 +9,7 @@ public class puzzel2 : MonoBehaviour
     {
         
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Root")
         {
@@ -17,8 +17,5 @@ public class puzzel2 : MonoBehaviour
         }
         
 }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-            bos.puzzle2Points--;
-    }
+    
 }
